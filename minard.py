@@ -1,7 +1,6 @@
 import pandas as pd
 import numpy as np
 import altair as alt
-pd.options.mode.chained_assignment = None  # default='warn'
 
 
 set_width = 1500
@@ -9,15 +8,15 @@ set_height = 350
 
 
 data = pd.read_csv('minard-data.csv')
-cities = data[["LONC", "LATC", "CITY"]]
+cities = data[["LONC", "LATC", "CITY"]].copy()
 cities = cities.dropna()
 
 
-temperatures = data[["LONT", "TEMP", "DAYS", "MON", "DAY"]]
+temperatures = data[["LONT", "TEMP", "DAYS", "MON", "DAY"]].copy()
 temperatures = temperatures.dropna()
 
 
-troops = data[["LONP", "LATP", "SURV" , "DIR", "DIV"]]
+troops = data[["LONP", "LATP", "SURV" , "DIR", "DIV"]].copy()
 troops = troops.dropna()
 troops = troops.sort_values(by=["DIV", "SURV"], ascending=False)
 
