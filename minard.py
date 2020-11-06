@@ -3,7 +3,7 @@ import numpy as np
 import altair as alt
 
 #Setting witdh info for chart
-set_width = 1500
+set_width = 1300
 set_height = 350
 
 #Reading in the data and breaking it into 3 categories for Troops, Cities and Temps
@@ -18,12 +18,12 @@ troops = troops.sort_values(by=["DIV", "SURV"], ascending=False)
 
 
 #Initial graph drawing troop lines
-troop_graph = alt.Chart(troops, title='Napoleon\'s March on Russia (A Minard Recreation)').mark_trail().encode(
+troop_graph = alt.Chart(troops, title='A visual representation of troop loses during Napoleon\'s march on Russia').mark_trail().encode(
     longitude='LONP',
     latitude='LATP',
     size=alt.Size('SURV', scale=alt.Scale(range=[1, 100]), legend=None),
     detail='DIV',
-    color=alt.Color('DIR', scale=alt.Scale(domain=['A', 'R'],range=['#F0C575', '#000000'])),
+    color=alt.Color('DIR',title= 'Advance or Retreat', scale=alt.Scale(domain=['A', 'R'],range=['#F0C575', '#000000'])),
 ).properties(width=set_width,height=set_height)
 
 
@@ -47,7 +47,7 @@ troop_numbers_graph = alt.Chart(every_second_troop_num).mark_text(angle=360, ali
     latitude='LATP',
     text='SURV',
     detail='DIV',
-    color=alt.Color('DIV', type='ordinal',scale=alt.Scale(domain=[1, 2, 3],range=['#05E9FF', '#0EBFE9', '#009ACD']))
+    color=alt.Color('DIV', title='Military Division',type='ordinal',scale=alt.Scale(domain=[1, 2, 3],range=['#05E9FF', '#0EBFE9', '#009ACD']))
 )
 
 
