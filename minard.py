@@ -27,6 +27,7 @@ troop_graph = alt.Chart(troops, title='A visual representation of troop loses du
 ).properties(width=set_width,height=set_height)
 
 
+
 #Graph plotting city names to be overlayed on troop graph
 city_graph = alt.Chart(cities).mark_text(angle=360, size = 15,color ='#F8F8FF').encode(
     longitude='LONC',
