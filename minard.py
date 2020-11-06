@@ -51,9 +51,6 @@ troop_numbers_graph = alt.Chart(every_second_troop_num).mark_text(angle=360, ali
 )
 
 
-#Adding a latitude to temp data so that it is plotted in line with the above graph of retreat but just below it
-temperatures['LATT']=40
-
 #Graph of temperature during retreat
 temp_graph = alt.Chart(temperatures, title='Temperature During Retreat').mark_line().encode(
     x=alt.X('LONT', title='', axis=alt.Axis(labels=False)),
