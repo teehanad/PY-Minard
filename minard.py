@@ -63,14 +63,14 @@ temp_graph = alt.Chart(temperatures, title='Temperature During Retreat').mark_li
     height=100
 )
 
+
+#combinng all layers of the Troop/Cities graph
+
 combo_graph = alt.layer(
     troop_graph, city_graph, troop_numbers_graph
 ).resolve_scale(
     color='independent'
 )
-
-#combinng all layers of the Troop/Cities graph
-
 
 
 #Vertical concatination of the Troop/City graph and the Temp graph
